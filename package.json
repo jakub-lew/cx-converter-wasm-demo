@@ -1,7 +1,7 @@
 {
     "name": "cx-converter-demo",
     "version": "1.0.0",
-    "description": "Build Ship Debug Wasm Frontend App",
+    "description": "Creoox Wasm Converter Demo",
     "main": "main.js",
     "scripts": {
         "build": "webpack",
@@ -9,8 +9,8 @@
         "deploy": "webpack --mode=production"
     },
     "keywords": [],
-    "author": "Will Usher <will@willusher.io>",
-    "license": "MIT",
+    "author": "",
+    "license": "",
     "devDependencies": {        
         "copy-webpack-plugin": "^11.0.0",
         "html-webpack-plugin": "^5.5.3",
