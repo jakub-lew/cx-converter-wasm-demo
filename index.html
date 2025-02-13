@@ -1,227 +1,28 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>xeokit simple viewer</title>
-  <!-- <link href="https://xeokit.github.io/xeokit-sdk/examples/css/pageStyle.css" rel="stylesheet" /> -->
-  <link href="./pageStyle.css" rel="stylesheet" />
-
-  <style>
-    /* #myCanvas {
-      position: absolute;
-      top: 0;
-      left: 250px;
-      width: calc(100% - 250px);
-      height: 100%;
-      background: #eee;
-    } */
-
-    #myNavCubeCanvas {
-      position: absolute;
-      width: 250px;
-      height: 250px;
-      bottom: 50px;
-      right: 10px;
-      z-index: 200000;
-    }
-
-    #treeViewContainer {
-      pointer-events: all;
-      height: 100%;
-      overflow-y: scroll;
-      overflow-x: hidden;
-      position: absolute;
-      background-color: rgba(255, 255, 255, 0.2);
-      color: black;
-      top: 0;
-      z-index: 200000;
-      float: left;
-      left: 0;
-      padding-left: 10px;
-      font-family: 'Roboto', sans-serif;
-      font-size: 15px;
-      user-select: none;
-      -ms-user-select: none;
-      -moz-user-select: none;
-      -webkit-user-select: none;
-      width: 250px;
-    }
-
-    #treeViewContainer ul {
-      list-style: none;
-      padding-left: 1.75em;
-      pointer-events: none;
-    }
-
-    #treeViewContainer ul li {
-      position: relative;
-      width: 200px;
-      pointer-events: none;
-      padding-top: 3px;
-      padding-bottom: 3px;
-      vertical-align: middle;
-    }
-
-    #treeViewContainer ul li a {
-      background-color: #eee;
-      border-radius: 50%;
-      color: #000;
-      display: inline-block;
-      height: 1.5em;
-      left: -1.5em;
-      position: absolute;
-      text-align: center;
-      text-decoration: none;
-      width: 1.5em;
-      pointer-events: all;
-    }
-
-    #treeViewContainer ul li a.plus {
-      background-color: #ded;
-      pointer-events: all;
-    }
-
-    #treeViewContainer ul li a.minus {
-      background-color: #eee;
-      pointer-events: all;
-    }
-
-    #treeViewContainer ul li a:active {
-      top: 1px;
-      pointer-events: all;
-    }
-
-    #treeViewContainer ul li span:hover {
-      color: white;
-      cursor: pointer;
-      background: black;
-      padding-left: 2px;
-      pointer-events: all;
-    }
-
-    #treeViewContainer ul li span {
-      display: inline-block;
-      width: calc(100% - 50px);
-      padding-left: 2px;
-      pointer-events: all;
-      height: 23px;
-    }
-
-    #treeViewContainer .highlighted-node {
-      border: black solid 1px;
-      background: yellow;
-      color: black;
-      padding-left: 1px;
-      padding-right: 5px;
-      pointer-events: all;
-    }
-
-    .xeokit-context-menu {
-      font-family: 'Roboto', sans-serif;
-      font-size: 15px;
-      display: none;
-      z-index: 300000;
-      background: rgba(255, 255, 255, 0.46);
-      border: 1px solid black;
-      border-radius: 6px;
-      padding: 0;
-      width: 200px;
-    }
-
-    .xeokit-context-menu ul {
-      list-style: none;
-      margin-left: 0;
-      padding: 0;
-    }
-
-    .xeokit-context-menu-item {
-      list-style-type: none;
-      padding-left: 10px;
-      padding-right: 20px;
-      padding-top: 4px;
-      padding-bottom: 4px;
-      color: black;
-      background: rgba(255, 255, 255, 0.46);
-      cursor: pointer;
-      width: calc(100% - 30px);
-    }
-
-    .xeokit-context-menu-item:hover {
-      background: black;
-      color: white;
-      font-weight: normal;
-    }
-
-    .xeokit-context-menu-item span {
-      display: inline-block;
-    }
-
-    .xeokit-context-menu .disabled {
-      display: inline-block;
-      color: gray;
-      cursor: default;
-      font-weight: normal;
-    }
-
-    .xeokit-context-menu .disabled:hover {
-      color: gray;
-      cursor: default;
-      background: #eeeeee;
-      font-weight: normal;
-    }
-
-    .xeokit-context-menu-item-separator {
-      background: rgba(0, 0, 0, 1);
-      height: 1px;
-      width: 100%;
-    }
-
-    .buttons {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-
-      margin: 0;
-      position: absolute;
-      left: 40px;
-      top: 40px;
-    }
-
-    #myNavCubeCanvas {
-      position: absolute;
-      width: 250px;
-      height: 250px;
-      bottom: 50px;
-      right: 10px;
-      z-index: 200000;
-    }
-
-    #footer {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      width: 100%;
-      padding: 5px;
-      text-align: right;
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>client side (offline) converter + viewer</title>
 </head>
 
 <body>
-  <input type="checkbox" id="info-button" />
-  <label for="info-button" class="info-button">
-    <i class="far fa-3x fa-question-circle"></i>
-  </label>
-  <canvas id="myCanvas"></canvas>
-  <canvas id="myNavCubeCanvas"></canvas>
-  <div id="stats"></div>
-  <div id="treeViewContainer"></div>
-  <div id="footer"></div>
+    <script type="module" src="/src/main.ts"></script>
+    <div class=divFile>
+        <input type="file" id="finput">
+    </div>
+    <div class="divProgress">
+        Progress: <b id="progressPercentage"></b><BR>
+        Progress text: <b id="progressText"></b>
+    </div>
+    <div class="divCanvas">
+        <canvas id="myCanvas" style="height:100%; width:100%"></canvas>
+    </div>
+    <div class=divTreeView id="myTreeView">
+    </div>
+    <script type="module" src="/src/main.ts"></script>
 </body>
-
 
 </html>

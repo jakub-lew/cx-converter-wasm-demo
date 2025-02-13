@@ -1,28 +1,23 @@
 {
-    "name": "cx-converter-demo",
-    "version": "1.0.0",
-    "description": "Creoox Wasm Converter Demo",
-    "main": "main.js",
+    "name": "cx-converter-wasm-demo",
+    "private": true,
+    "version": "0.0.1",
+    "description": "example of use of Creoox WebAssembly converter",
+    "type": "module",
     "scripts": {
-        "build": "webpack",
-        "serve": "webpack server",
-        "deploy": "webpack --mode=production"
+      "dev": "vite",
+      "build": "tsc && vite build",
+      "preview": "vite preview"
     },
-    "keywords": [],
-    "author": "",
-    "license": "",
-    "devDependencies": {        
-        "copy-webpack-plugin": "^11.0.0",
-        "html-webpack-plugin": "^5.5.3",
-        "ts-loader": "^9.5.1",
-        "typescript": "^5.3.2",
-        "webpack": "^5.89.0",
-        "webpack-cli": "^5.1.4",
-        "webpack-dev-server": "^4.15.1"
+    "repository": {
+      "type": "github",
+      "url": "https://github.com/jakub-lew/cx-converter-wasm-demo.git"
     },
-    "dependencies": {                
-        "@creooxag/cx-converter": "0.0.2-alpha",
-        "@xeokit/xeokit-sdk": "^2.6.65",
-        "asciify-image": "^0.1.10"
+    "devDependencies": {
+      "@creooxag/cx-converter": "^0.0.4-alpha",
+      "@xeokit/xeokit-sdk": "^2.6.66",
+      "typescript": "~5.7.2",
+      "vite": "^6.1.0"
     }
-}
+  }
+  
