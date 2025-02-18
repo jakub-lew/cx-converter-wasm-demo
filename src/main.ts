@@ -19,7 +19,13 @@ async function fileInputChanged() {
     try {
       const ext = file.name.split('.').pop();
       if (ext == "ifc" || ext == "ifczip") {
-        const { gltf, metaData } = await ifc2gltf(data as unknown as string);
+        const progressCallback = (progress : number) => {
+          document.getElementById("progressPercentage")!.innerText = progress + "%";
+        };
+        const progressTextCallback = (progressText : string) => {
+          document.getElementById("progressText")!.innerText = progressText;
+        };
+        const { gltf, metaData } = await ifc2gltf(data as unknown as string, progressCallback, progressTextCallback);
         const model = await gltfLoader.load({
           id: "myModel",
           gltf: gltf,
