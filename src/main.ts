@@ -25,7 +25,8 @@ async function fileInputChanged() {
         const progressTextCallback = (progressText : string) => {
           document.getElementById("progressText")!.innerText = progressText;
         };
-        const { gltf, metaData } = await ifc2gltf(data as unknown as string, progressCallback, progressTextCallback);
+        const dataString = new TextDecoder().decode(data);
+        const { gltf, metaData } = await ifc2gltf(dataString, progressCallback, progressTextCallback);
         const model = await gltfLoader.load({
           id: "myModel",
           gltf: gltf,
