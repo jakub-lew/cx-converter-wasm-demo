@@ -4,6 +4,7 @@ import { Viewer, GLTFLoaderPlugin, TreeViewPlugin } from "@xeokit/xeokit-sdk";
 const viewer = new Viewer({
   canvasId: "myCanvas"
 });
+//@ts-ignore
 const treeView = new TreeViewPlugin(viewer, {
   containerElement: document.getElementById("myTreeView") as HTMLElement
 });
@@ -26,7 +27,10 @@ async function fileInputChanged() {
           document.getElementById("progressText")!.innerText = progressText;
         };
         const dataString = new TextDecoder().decode(data);
-        const { gltf, metaData } = await ifc2gltf(dataString, progressCallback, progressTextCallback);
+        
+        // const { gltf, metaData } = await ifc2gltf(dataString, "https://cdn.jsdelivr.net/npm/@creooxag/cx-converter@0.0.6-alpha/dist/", progressCallback, progressTextCallback);
+        const { gltf, metaData } = await ifc2gltf(dataString, "./", progressCallback, progressTextCallback);
+        // const { gltf, metaData } = await ifc2gltf(dataString);
         const model = await gltfLoader.load({
           id: "myModel",
           gltf: gltf,
