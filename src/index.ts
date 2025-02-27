@@ -27,28 +27,35 @@ async function fileInputChanged() {
           document.getElementById("progressText")!.innerText = progressText;
         };
         const data = new TextDecoder().decode(dataUint8Array);
-
-        // const { gltf, metaData } = await ifc2gltf(dataString, "https://cdn.jsdelivr.net/npm/@creooxag/cx-converter@0.0.6-alpha/dist/", progressCallback, progressTextCallback);
-        //const { gltf, metaData } = await ifc2gltf(dataString, "./", progressCallback, progressTextCallback);
-        // const { gltf, metaData } = await ifc2gltf(dataString);
+        
+        // simplest option:
+        // const { gltf, metaData } = await ifc2gltf(data);
         const { gltf, metaData } = await ifc2gltf(
           data,
           {
-            remote: true,
             progressCallback: progressCallback,
             progressTextCallback: progressTextCallback,
-          });
+          }
+          /** or totally locally:
+          {
+            remote: false,
+            urlPath: "./dist/",
+            progressCallback: progressCallback,
+            progressTextCallback: progressTextCallback,
+          }
+          **/
+        );
+        
+         
         const model = await gltfLoader.load({
           id: "myModel",
           gltf: gltf,
           //@ts-ignore
           metaModelJSON: metaData
-          // autoMetaModel: true
         });
         model.on("loaded", () => {
           viewer.cameraFlight.flyTo();
-          //the following, together with autoMetaModel: true works but flat ID list in treeview is visible
-          // viewer.metaScene.createMetaModel("metaModel", metaData);
+
         });
       }
     }

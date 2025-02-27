@@ -1,7 +1,15 @@
-.divFile {
+.divNavigation {
   position: absolute;
   left: 0;
   top: 0;
+  height: 2.5vh;
+  width: 98vw;
+  background-color: #005EA8;
+}
+.divFile {
+  position: absolute;
+  left: 0;
+  top: 2.5vh;
   height: 2.5vh;
   width: 98vw;
   background-color: #BFD7ED;
@@ -9,7 +17,7 @@
 .divProgress {
   position: absolute;
   left: 0;
-  top: 2.5vh;
+  top: 5vh;
   height: 5vh;
   width: 98vw;
   background-color: #60A3D9;
@@ -17,16 +25,20 @@
 .divCanvas{
     position: absolute;
     left: 30vw;
-    top: 7.5vh;
-    height: 88vh;
+    top: 10vh;
+    height: 86vh;
     width: 68vw;
     background-color: #0074B7;
 }
 .divTreeView{
     position: absolute;
     left: 0;
-    top: 7.5vh;
-    height: 88vh;
+    top: 10vh;
+    height: 86vh;
     width: 30vw;
     background-color: #003B73;
+}
+.a{
+    color: rgb(26, 176, 196);
+    text-decoration: none;
 }

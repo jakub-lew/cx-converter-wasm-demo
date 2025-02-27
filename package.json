@@ -5,19 +5,21 @@
     "description": "example of use of Creoox WebAssembly converter",
     "type": "module",
     "scripts": {
-      "dev": "vite",
-      "build": "tsc && vite build",
-      "preview": "vite preview"
+        "dev": "vite",
+        "build": "tsc && vite build",
+        "preview": "vite preview"
     },
     "repository": {
-      "type": "github",
-      "url": "https://github.com/jakub-lew/cx-converter-wasm-demo.git"
+        "type": "github",
+        "url": "https://github.com/jakub-lew/cx-converter-wasm-demo.git"
     },
     "devDependencies": {
-      "@creooxag/cx-converter": "^0.0.12-alpha",
-      "@xeokit/xeokit-sdk": "^2.6.66",
-      "typescript": "~5.7.2",
-      "vite": "^6.1.0"
-    }
-  }
-  
+        "@creooxag/cx-converter": "^0.0.15-alpha",
+        "@xeokit/xeokit-sdk": "^2.6.66",
+        "@xeokit/xeokit-convert": "^1.1.25",
+        "typescript": "~5.7.2",
+        "vite": "^6.1.0",
+        "rollup-plugin-node-builtins": "^2.1.2"
+    },
+    "dependencies": {}
+}
