@@ -16,21 +16,28 @@ async function fileInputChanged() {
   const file = fileInput!.files![0];
   var reader = await new FileReader();
   reader.onload = async () => {
-    var data = new Uint8Array(reader.result as ArrayBuffer);
+    var dataUint8Array = new Uint8Array(reader.result as ArrayBuffer);
     try {
       const ext = file.name.split('.').pop();
       if (ext == "ifc" || ext == "ifczip") {
-        const progressCallback = (progress : number) => {
+        const progressCallback = (progress: number) => {
           document.getElementById("progressPercentage")!.innerText = progress + "%";
         };
-        const progressTextCallback = (progressText : string) => {
+        const progressTextCallback = (progressText: string) => {
           document.getElementById("progressText")!.innerText = progressText;
         };
-        const dataString = new TextDecoder().decode(data);
-        
+        const data = new TextDecoder().decode(dataUint8Array);
+
         // const { gltf, metaData } = await ifc2gltf(dataString, "https://cdn.jsdelivr.net/npm/@creooxag/cx-converter@0.0.6-alpha/dist/", progressCallback, progressTextCallback);
-        const { gltf, metaData } = await ifc2gltf(dataString, "./", progressCallback, progressTextCallback);
+        //const { gltf, metaData } = await ifc2gltf(dataString, "./", progressCallback, progressTextCallback);
         // const { gltf, metaData } = await ifc2gltf(dataString);
+        const { gltf, metaData } = await ifc2gltf(
+          data,
+          {
+            remote: true,
+            progressCallback: progressCallback,
+            progressTextCallback: progressTextCallback,
+          });
         const model = await gltfLoader.load({
           id: "myModel",
           gltf: gltf,
