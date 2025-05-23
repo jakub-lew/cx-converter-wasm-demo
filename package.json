@@ -14,7 +14,7 @@
         "url": "https://github.com/jakub-lew/cx-converter-wasm-demo.git"
     },
     "devDependencies": {
-        "@creooxag/cx-converter": "^0.0.15-alpha",
+        "@creooxag/cxconverter": "^0.0.2-alpha",
         "@xeokit/xeokit-sdk": "^2.6.66",
         "@xeokit/xeokit-convert": "^1.1.25",
         "typescript": "~5.7.2",

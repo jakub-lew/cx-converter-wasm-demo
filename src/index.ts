@@ -1,5 +1,5 @@
 import './style.css'
-import { ifc2gltf } from "@creooxag/cx-converter"
+import { ifc2gltf } from "@creooxag/cxconverter"
 import { Viewer, GLTFLoaderPlugin, TreeViewPlugin } from "@xeokit/xeokit-sdk";
 const viewer = new Viewer({
   canvasId: "myCanvas"

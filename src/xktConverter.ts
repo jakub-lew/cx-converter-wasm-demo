@@ -1,7 +1,7 @@
 //import * as xeokitConvert from 'xeokit-convert'
 //@ts-ignore
 import { writeXKTModelToArrayBuffer, XKTModel, parseGLTFIntoXKTModel } from '@xeokit/xeokit-convert/dist/xeokit-convert.es.js';
-import { IfcConverter } from '@creooxag/cx-converter';
+import { IfcConverter } from '@creooxag/cxconverter';
 
 export class XktConverter {
     private ifcConverter?: IfcConverter;
